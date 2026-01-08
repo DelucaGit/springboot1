@@ -58,7 +58,7 @@ public class UserController {
         return ResponseEntity.ok(response);
     }
 
-    @PreAuthorize("hasRole('USER,ADMIN')")
+    @PreAuthorize("hasAnyRole('USER','ADMIN')")
     @GetMapping("/me")
     public UserResponseDTO getMe(Authentication authentication){
         String username = authentication.getName();
